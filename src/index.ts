@@ -1,0 +1,44 @@
+import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import { layout } from './layout'
+import { homePage } from './pages/home'
+import { blogListPage, blogPostPage } from './pages/blog'
+import { threeDPage } from './pages/3d'
+import { urlShortenerPage } from './pages/url-shortener'
+import { POSTS } from './posts'
+
+const app = new Hono()
+
+app.use('*', cors())
+
+// ── Home ──────────────────────────────────────────────────────────────────────
+app.get('/', (c) => c.html(layout('Beige Playground', homePage(POSTS.slice(0, 3)))))
+
+// ── Blog ──────────────────────────────────────────────────────────────────────
+app.get('/blog', (c) => c.html(layout('Blog · Beige Playground', blogListPage(POSTS))))
+
+app.get('/blog/:slug', (c) => {
+  const post = POSTS.find((p) => p.slug === c.req.param('slug'))
+  if (!post) return c.html(layout('Not Found · Beige Playground', notFound()), 404)
+  return c.html(layout(`${post.title} · Beige Playground`, blogPostPage(post)))
+})
+
+// ── 3D ───────────────────────────────────────────────────────────────────────
+app.get('/3d', (c) => c.html(layout('3D · Beige Playground', threeDPage())))
+
+// ── URL Shortener ─────────────────────────────────────────────────────────────
+app.get('/shortener', (c) => c.html(layout('URL Shortener · Beige Playground', urlShortenerPage())))
+
+// ── 404 ──────────────────────────────────────────────────────────────────────
+app.notFound((c) => c.html(layout('Not Found · Beige Playground', notFound()), 404))
+
+function notFound(): string {
+  return `
+  <div class="page">
+    <h1 style="font-size:4rem">404</h1>
+    <p style="color:var(--muted);margin-top:.5rem">Page not found.</p>
+    <a href="/" class="btn" style="margin-top:2rem;display:inline-block">← Home</a>
+  </div>`
+}
+
+export default app
