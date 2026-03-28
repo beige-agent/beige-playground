@@ -18,6 +18,8 @@ export function homePage(recentPosts: Post[]): string {
       <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap">
         <a href="/blog" class="btn">Read the blog →</a>
         <a href="/3d"   class="btn ghost">3D demos</a>
+        <a href="/shaders" class="btn ghost">Shader playground</a>
+        <a href="/particles" class="btn ghost">Particles</a>
         <a href="/shortener" class="btn ghost">URL shortener</a>
       </div>
     </div>
@@ -27,6 +29,8 @@ export function homePage(recentPosts: Post[]): string {
       ${featureTile('⚡', 'Edge-deployed', 'Served from Cloudflare\'s 300+ global PoPs. Sub-millisecond TTFB.')}
       ${featureTile('📝', 'Blog', 'Notes, tutorials, and experiments. Written in TypeScript, rendered at the edge.')}
       ${featureTile('🎮', '3D Demos', 'WebGL / Three.js experiments running entirely in your browser.')}
+      ${featureTile('🎨', 'Shader Playground', 'Write and preview GLSL fragment shaders in real-time.')}
+      ${featureTile('✨', 'Particles', 'GPU-instanced particle system with 100,000+ animated particles at 60 FPS.')}
       ${featureTile('🔗', 'URL Shortener', 'Simple URL shortening demo using client-side storage.')}
     </div>
 

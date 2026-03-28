@@ -4,7 +4,10 @@ import { layout } from './layout'
 import { homePage } from './pages/home'
 import { blogListPage, blogPostPage } from './pages/blog'
 import { threeDPage } from './pages/3d'
+import { handsPage } from './pages/hands'
 import { urlShortenerPage } from './pages/url-shortener'
+import { shaderPlaygroundPage } from './pages/shader-playground'
+import { particlesPage } from './pages/particles'
 import { POSTS } from './posts'
 
 const app = new Hono()
@@ -28,6 +31,15 @@ app.get('/3d', (c) => c.html(layout('3D · Beige Playground', threeDPage())))
 
 // ── URL Shortener ─────────────────────────────────────────────────────────────
 app.get('/shortener', (c) => c.html(layout('URL Shortener · Beige Playground', urlShortenerPage())))
+
+// ── Shader Playground ──────────────────────────────────────────────────────────
+app.get('/shaders', (c) => c.html(layout('Shader Playground · Beige Playground', shaderPlaygroundPage())))
+
+// ── Particles ────────────────────────────────────────────────────────────────────
+app.get('/particles', (c) => c.html(particlesPage()))
+
+// ── Hand tracking ─────────────────────────────────────────────────────────────
+app.get('/hands', (c) => c.html(handsPage()))
 
 // ── 404 ──────────────────────────────────────────────────────────────────────
 app.notFound((c) => c.html(layout('Not Found · Beige Playground', notFound()), 404))

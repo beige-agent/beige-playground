@@ -171,6 +171,8 @@ export function layout(title: string, body: string): string {
       <a href="/" class="nav-brand">beige<span>.</span>playground</a>
       <a href="/blog" class="nav-link">Blog</a>
       <a href="/3d" class="nav-link">3D</a>
+      <a href="/shaders" class="nav-link">Shaders</a>
+      <a href="/particles" class="nav-link">Particles</a>
       <a href="/shortener" class="nav-link">URL Shortener</a>
     </div>
   </nav>
