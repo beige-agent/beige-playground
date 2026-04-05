@@ -1,10 +1,11 @@
-export function layout(title: string, body: string): string {
+export function layout(title: string, body: string, rssUrl?: string): string {
   return /* html */ `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
+  ${rssUrl ? `<link rel="alternate" type="application/rss+xml" title="${title}" href="${rssUrl}" />` : ''}
   <style>
     /* ── Reset & tokens ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -170,10 +171,13 @@ export function layout(title: string, body: string): string {
     <div class="nav-inner">
       <a href="/" class="nav-brand">beige<span>.</span>playground</a>
       <a href="/blog" class="nav-link">Blog</a>
+      <a href="/markdown" class="nav-link">Markdown Blog</a>
       <a href="/3d" class="nav-link">3D</a>
-      <a href="/hands" class="nav-link" style="color:var(--accent);font-weight:700">✋ Hands</a>
       <a href="/shaders" class="nav-link">Shaders</a>
       <a href="/particles" class="nav-link">Particles</a>
+      <a href="/terrain" class="nav-link">Terrain</a>
+      <a href="/editor" class="nav-link">Editor</a>
+      <a href="/hands" class="nav-link">Hands</a>
       <a href="/shortener" class="nav-link">URL Shortener</a>
     </div>
   </nav>

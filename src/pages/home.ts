@@ -20,6 +20,9 @@ export function homePage(recentPosts: Post[]): string {
         <a href="/3d"   class="btn ghost">3D demos</a>
         <a href="/shaders" class="btn ghost">Shader playground</a>
         <a href="/particles" class="btn ghost">Particles</a>
+        <a href="/terrain" class="btn ghost">Terrain</a>
+        <a href="/editor" class="btn ghost">Code editor</a>
+        <a href="/hands" class="btn ghost">Hands</a>
         <a href="/shortener" class="btn ghost">URL shortener</a>
       </div>
     </div>
@@ -31,6 +34,9 @@ export function homePage(recentPosts: Post[]): string {
       ${featureTile('🎮', '3D Demos', 'WebGL / Three.js experiments running entirely in your browser.')}
       ${featureTile('🎨', 'Shader Playground', 'Write and preview GLSL fragment shaders in real-time.')}
       ${featureTile('✨', 'Particles', 'GPU-instanced particle system with 100,000+ animated particles at 60 FPS.')}
+      ${featureTile('🏔️', 'Terrain', 'Procedural terrain generation with Perlin noise and water simulation.')}
+      ${featureTile('💻', 'Code Editor', 'Live JavaScript sandbox with Monaco editor, console output, and DOM preview.')}
+      ${featureTile('👋', 'Hands', 'Hand-tracking particle system with MediaPipe. Control 8,000 particles with gestures.')}
       ${featureTile('🔗', 'URL Shortener', 'Simple URL shortening demo using client-side storage.')}
     </div>
 
