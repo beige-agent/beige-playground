@@ -92,7 +92,7 @@ app.get('/health', (c) => c.json({
   status: 'healthy',
   service: 'beige-playground',
   version: '1.0.0',
-  timestamp: Date.now(),
+  timestamp: new Date().toISOString(),
 }))
 
 app.notFound((c) => c.html(layout('Not Found · Beige Playground', notFound()), 404))
